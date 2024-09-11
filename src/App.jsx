@@ -20,6 +20,7 @@ function App() {
       <Menu></Menu>
         <Routes> 
           <Route exact path="/" element={<Inicio></Inicio>}></Route>
+          <Route exact path="/login" element={<Inicio></Inicio>}></Route>
           <Route exact path="/administrador" element={<Administrador></Administrador>}></Route>
           <Route exact path="/administrador/crear" element={<FormularioProducto></FormularioProducto>}></Route>
           <Route exact path="/administrador/editar" element={<FormularioProducto></FormularioProducto>}></Route>
