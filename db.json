@@ -44,6 +44,15 @@
       "descripcion_breve": "Medialuna",
       "descripcion_amplia": "Medialuna con dulce de leche",
       "id": "oyDjoDG"
+    },
+    {
+      "nombreProducto": "Capuccino",
+      "precio": "2000",
+      "imagen": "https://images.pexels.com/photos/17653585/pexels-photo-17653585/free-photo-of-plato-cafe-capuchino-beber.jpeg",
+      "categoria": "Infusiones",
+      "descripcion_breve": "Capuccino con canela",
+      "descripcion_amplia": "Capuccino con canela",
+      "id": "STy0guc"
     }
   ]
 }
