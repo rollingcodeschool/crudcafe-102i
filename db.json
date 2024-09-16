@@ -26,6 +26,15 @@
       "descripcion_breve": "Capuccino con canela",
       "descripcion_amplia": "Capuccino con canela",
       "id": "STy0guc"
+    },
+    {
+      "nombreProducto": "Creep serrano",
+      "precio": "2500",
+      "imagen": "https://images.pexels.com/photos/17653584/pexels-photo-17653584/free-photo-of-plato-comida-bol-tazon.jpeg",
+      "categoria": "Salado",
+      "descripcion_breve": "Creep serrano ",
+      "descripcion_amplia": "Creep serrano con jamon y queso",
+      "id": "bNwWtGF"
     }
   ]
 }
