@@ -13,11 +13,10 @@ export const leerProductosAPI = async()=>{
     }
 }
 //PUT o PATH
-//DELETE
 
 //POST
 export const crearProductoAPI = async(productoNuevo)=>{
-   try {
+    try {
     const respuesta = await fetch(URLProducto,{
         method: "POST",
         headers:{
@@ -30,5 +29,19 @@ export const crearProductoAPI = async(productoNuevo)=>{
    } catch (error) {
     console.error(error)
     return false;
-   }
 }
+}
+
+//DELETE
+export const borrarProductoAPI = async(id)=>{
+    try {
+     const respuesta = await fetch(URLProducto+'/'+id,{
+         method: "DELETE"
+     })
+     console.log(respuesta);
+     return respuesta;
+    } catch (error) {
+     console.error(error)
+     return false;
+    }
+ }
