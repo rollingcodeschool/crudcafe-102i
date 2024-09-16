@@ -35,6 +35,15 @@
       "descripcion_breve": "jldkjgld fgdlf gldkfgjdf",
       "descripcion_amplia": "dlkfgjdlfkg dldfglkdflg",
       "id": "GyZmXGp"
+    },
+    {
+      "nombreProducto": "Medialuna",
+      "precio": "300",
+      "imagen": "https://images.pexels.com/photos/887853/pexels-photo-887853.jpeg",
+      "categoria": "Dulce",
+      "descripcion_breve": "Medialuna",
+      "descripcion_amplia": "Medialuna con dulce de leche",
+      "id": "oyDjoDG"
     }
   ]
 }

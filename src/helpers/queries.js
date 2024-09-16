@@ -20,5 +20,6 @@ export const crearProductoAPI = async(productoNuevo)=>{
     return respuesta;
    } catch (error) {
     console.error(error)
+    return false;
    }
 }
