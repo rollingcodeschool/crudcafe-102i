@@ -10,8 +10,8 @@
       "id": "AQotbYY"
     },
     {
-      "nombreProducto": "Medialuna",
-      "precio": "300",
+      "nombreProducto": "Medialuna x 2",
+      "precio": "450",
       "imagen": "https://images.pexels.com/photos/887853/pexels-photo-887853.jpeg",
       "categoria": "Dulce",
       "descripcion_breve": "Medialuna",
@@ -20,11 +20,11 @@
     },
     {
       "nombreProducto": "Capuccino",
-      "precio": "2000",
+      "precio": "2200",
       "imagen": "https://images.pexels.com/photos/17653585/pexels-photo-17653585/free-photo-of-plato-cafe-capuchino-beber.jpeg",
       "categoria": "Infusiones",
       "descripcion_breve": "Capuccino con canela",
-      "descripcion_amplia": "Capuccino con canela",
+      "descripcion_amplia": "Capuccino con canela especial",
       "id": "STy0guc"
     },
     {

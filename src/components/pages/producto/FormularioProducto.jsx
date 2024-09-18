@@ -1,9 +1,9 @@
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { buscarProductoAPI, crearProductoAPI } from "../../../helpers/queries";
+import { buscarProductoAPI, crearProductoAPI, editarProductoAPI } from "../../../helpers/queries";
 import Swal from "sweetalert2";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const FormularioProducto = ({titulo, creandoProducto}) => {
   const {
@@ -14,6 +14,7 @@ const FormularioProducto = ({titulo, creandoProducto}) => {
     setValue
   } = useForm();
   const {id} = useParams();
+  const navegacion = useNavigate();
 
   useEffect(()=>{
     if(!creandoProducto){
@@ -37,8 +38,13 @@ const FormularioProducto = ({titulo, creandoProducto}) => {
         setValue('descripcion_amplia', productoEncontrado.descripcion_amplia);
     }else{
       //cartel de error
+      Swal.fire({
+        title: "Ocurrio un error",
+        text: `No se pudo obtener el producto, intente esta operación en unos minutos `,
+        icon: "error"
+      });
     }
-    //cargar en la respuesta en el formulario
+  
   }
 
   const onSubmit = async(producto) => {
@@ -66,7 +72,24 @@ const FormularioProducto = ({titulo, creandoProducto}) => {
       }
     }else{
       //aqui edito
-      console.log('editando producto')
+      //enviar el producto a la API
+      //mostramos el mensaje que todo salio bien
+      const respuesta = await editarProductoAPI(producto, id)
+      if(respuesta.status === 200){
+        Swal.fire({
+          title: "Producto editado",
+          text: `El producto ${producto.nombreProducto}, fue editado correctamente.`,
+          icon: "success"
+        });
+        //redireccionar al admin
+        navegacion('/administrador')
+      }else{
+        Swal.fire({
+          title: "Ocurrio un error",
+          text: `El producto ${producto.nombreProducto}, no pudo ser editado. Intente esta operacion en unos minutos`,
+          icon: "error"
+        });
+      }
     }
     
   };
