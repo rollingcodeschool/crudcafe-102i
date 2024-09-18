@@ -11,6 +11,7 @@ const FormularioProducto = ({titulo, creandoProducto}) => {
     handleSubmit,
     formState: { errors },
     reset,
+    setValue
   } = useForm();
   const {id} = useParams();
 
@@ -27,6 +28,13 @@ const FormularioProducto = ({titulo, creandoProducto}) => {
     if(respuesta.status === 200){
         const productoEncontrado = await respuesta.json();
         console.log(productoEncontrado)
+        //cargar los datos en el formulario
+        setValue('precio', productoEncontrado.precio);
+        setValue('nombreProducto', productoEncontrado.nombreProducto);
+        setValue('imagen', productoEncontrado.imagen);
+        setValue('categoria', productoEncontrado.categoria);
+        setValue('descripcion_breve', productoEncontrado.descripcion_breve);
+        setValue('descripcion_amplia', productoEncontrado.descripcion_amplia);
     }else{
       //cartel de error
     }
