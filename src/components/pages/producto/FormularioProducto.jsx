@@ -2,6 +2,8 @@ import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { crearProductoAPI } from "../../../helpers/queries";
 import Swal from "sweetalert2";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const FormularioProducto = ({titulo, creandoProducto}) => {
   const {
@@ -10,6 +12,19 @@ const FormularioProducto = ({titulo, creandoProducto}) => {
     formState: { errors },
     reset,
   } = useForm();
+  const {id} = useParams();
+
+  useEffect(()=>{
+    if(!creandoProducto){
+      cargarProducto();  
+    }
+  },[])
+
+  const cargarProducto = ()=>{
+    //buscar el producto en la API
+
+    //cargar en la respuesta en el formulario
+  }
 
   const onSubmit = async(producto) => {
     if(creandoProducto){
