@@ -12,6 +12,16 @@ export const leerProductosAPI = async()=>{
         return false
     }
 }
+//GET
+export const buscarProductoAPI = async(id)=>{
+    try {
+        const respuesta = await fetch(URLProducto+'/'+id)
+        return respuesta 
+    } catch (error) {
+        console.error(error)
+        return false
+    }
+}
 //PUT o PATH
 
 //POST

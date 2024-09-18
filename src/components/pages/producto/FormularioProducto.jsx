@@ -1,6 +1,6 @@
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { crearProductoAPI } from "../../../helpers/queries";
+import { buscarProductoAPI, crearProductoAPI } from "../../../helpers/queries";
 import Swal from "sweetalert2";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -20,9 +20,16 @@ const FormularioProducto = ({titulo, creandoProducto}) => {
     }
   },[])
 
-  const cargarProducto = ()=>{
+  const cargarProducto = async()=>{
     //buscar el producto en la API
-
+    const respuesta = await buscarProductoAPI(id)
+    console.log(respuesta)
+    if(respuesta.status === 200){
+        const productoEncontrado = await respuesta.json();
+        console.log(productoEncontrado)
+    }else{
+      //cartel de error
+    }
     //cargar en la respuesta en el formulario
   }
 
