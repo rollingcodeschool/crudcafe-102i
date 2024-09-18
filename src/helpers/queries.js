@@ -70,3 +70,17 @@ export const borrarProductoAPI = async (id) => {
     return false;
   }
 };
+
+const userAdmin={
+    email: 'admin@admin.com',
+    password: '12345678'
+}
+
+export const login = (usuario)=>{
+    if(usuario.email === userAdmin.email && usuario.password === userAdmin.password){
+        sessionStorage.setItem('userKey', JSON.stringify(userAdmin.email));
+        return true;
+    }else{
+        return false;
+    }
+}
