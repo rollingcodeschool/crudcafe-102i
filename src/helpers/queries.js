@@ -1,4 +1,5 @@
 const URLProducto = import.meta.env.VITE_API_PRODUCTO;
+const URLUsuario = import.meta.env.VITE_API_USUARIO;
 
 //Peticiones o solicitudes
 
@@ -29,6 +30,7 @@ export const editarProductoAPI = async (productoEditado, id) => {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
+        "x-token": JSON.parse(sessionStorage.getItem('userKey')).token
       },
       body: JSON.stringify(productoEditado),
     });
@@ -46,6 +48,7 @@ export const crearProductoAPI = async (productoNuevo) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "x-token": JSON.parse(sessionStorage.getItem('userKey')).token
       },
       body: JSON.stringify(productoNuevo),
     });
@@ -62,6 +65,9 @@ export const borrarProductoAPI = async (id) => {
   try {
     const respuesta = await fetch(URLProducto + "/" + id, {
       method: "DELETE",
+      headers: {
+        "x-token": JSON.parse(sessionStorage.getItem('userKey')).token
+      },
     });
     console.log(respuesta);
     return respuesta;
@@ -76,11 +82,29 @@ const userAdmin={
     password: '12345678'
 }
 
-export const login = (usuario)=>{
-    if(usuario.email === userAdmin.email && usuario.password === userAdmin.password){
-        sessionStorage.setItem('userKey', JSON.stringify(userAdmin.email));
-        return true;
-    }else{
-        return false;
-    }
-}
+// export const login = (usuario)=>{
+//     if(usuario.email === userAdmin.email && usuario.password === userAdmin.password){
+//         sessionStorage.setItem('userKey', JSON.stringify(userAdmin.email));
+//         return true;
+//     }else{
+//         return false;
+//     }
+// }
+
+//POST
+export const login = async (usuario) => {
+  try {
+    const respuesta = await fetch(URLUsuario, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(usuario),
+    });
+    console.log(respuesta);
+    return respuesta;
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
+};
