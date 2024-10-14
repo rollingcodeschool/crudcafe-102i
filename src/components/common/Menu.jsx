@@ -4,10 +4,11 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 
 const Menu = ({usuarioLogueado, setUsuarioLogueado}) => {
   const navegacion = useNavigate()
-
+console.log(usuarioLogueado)
+console.log(usuarioLogueado.email)
   const logout = ()=>{
     sessionStorage.removeItem('userKey')
-    setUsuarioLogueado('')
+    setUsuarioLogueado({})
     navegacion('/')
   }
   return (
@@ -26,7 +27,7 @@ const Menu = ({usuarioLogueado, setUsuarioLogueado}) => {
           <Nav className="ms-auto">
             <NavLink end className='nav-link' to='/'>Inicio</NavLink>
             {
-              usuarioLogueado !== ''?(
+              usuarioLogueado.email?(
                 <>
                 <NavLink end className='nav-link' to='/administrador'>Administrador</NavLink>
                 <Button className='nav-link' onClick={logout}>Logout</Button>

@@ -13,7 +13,7 @@ import "./App.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 function App() {
-  const usuario = JSON.parse(sessionStorage.getItem('userKey')) || '';
+  const usuario = JSON.parse(sessionStorage.getItem('userKey')) || {};
   const [usuarioLogueado, setUsuarioLogueado] =  useState(usuario)
 
   return (
